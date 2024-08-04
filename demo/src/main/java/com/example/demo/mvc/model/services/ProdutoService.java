@@ -1,7 +1,7 @@
 package com.example.demo.mvc.model.services;
 
 import com.example.demo.mvc.model.dto.Produto;
-import com.example.demo.mvc.model.repository.ProdutoRepository;
+import com.example.demo.mvc.model.repository.ProdutoRepositoryMVC;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -9,9 +9,9 @@ import java.util.Optional;
 @Service
 public class ProdutoService {
 
-    private final ProdutoRepository produtoRepository;
+    private final ProdutoRepositoryMVC produtoRepository;
 
-    public ProdutoService(ProdutoRepository produtoRepository) {
+    public ProdutoService(ProdutoRepositoryMVC produtoRepository) {
         this.produtoRepository = produtoRepository;
     }
 
