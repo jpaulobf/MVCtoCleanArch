@@ -1,0 +1,17 @@
+spring:
+
+  application:
+    name: demo
+
+  jpa:
+    database: h2
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  datasource:
+    url: jdbc:h2:file:./data/demo
+    username: sa
+    password: pass1
+
