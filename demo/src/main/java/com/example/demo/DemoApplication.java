@@ -8,6 +8,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
+/**
+ * Demo class application
+ */
 @SpringBootApplication
 public class DemoApplication {
 
