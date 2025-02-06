@@ -1,7 +1,5 @@
 package com.example.demo.clean.application.gateways;
 
-import com.example.demo.clean.domain.entity.Produto;
-
 import java.util.List;
 
 public interface ProdutoGateway<T> {
