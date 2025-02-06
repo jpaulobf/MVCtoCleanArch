@@ -36,4 +36,8 @@ public class ProdutoService {
             return false;
         }
     }
+
+    public Integer count() {
+        return Math.toIntExact(this.produtoRepository.count());
+    }
 }
