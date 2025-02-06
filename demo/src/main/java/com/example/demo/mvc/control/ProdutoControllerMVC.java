@@ -15,7 +15,7 @@ public class ProdutoControllerMVC {
         this.produtoService = produtoService;
     }
 
-    @GetMapping
+    @GetMapping({"/", ""})
     public List<Produto> findAllProducts() {
         return this.produtoService.findAll();
     }
@@ -33,5 +33,10 @@ public class ProdutoControllerMVC {
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable Integer id) {
         return this.produtoService.deleteById(id);
+    }
+
+    @GetMapping("/count")
+    public Integer count() {
+        return this.produtoService.count();
     }
 }
