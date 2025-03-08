@@ -2,8 +2,6 @@ package com.example.demo.clean.infrastructure.gateways;
 
 import com.example.demo.clean.domain.entity.Produto;
 import com.example.demo.clean.infrastructure.persistences.ProdutoEntity;
-import com.example.demo.clean.infrastructure.persistences.ProdutoRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 
