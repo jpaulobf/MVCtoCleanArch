@@ -1,0 +1,7 @@
+demo/target/classes/*
+data/demo.mv.db
+.vscode/*
+.idea/*
+*.class
+*.jar
+*.lst
