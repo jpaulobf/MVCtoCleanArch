@@ -1,0 +1,14 @@
+FROM openjdk:17-jdk-slim
+
+# Define um diretório de trabalho dentro do container
+WORKDIR /app
+
+# Copia o arquivo JAR da aplicação para o container
+COPY target/*.jar app.jar
+COPY data/*.* ./data/
+
+# Expõe a porta padrão da aplicação Spring Boot
+EXPOSE 8080
+
+# Comando para rodar a aplicação
+CMD ["java", "-jar", "app.jar"]
