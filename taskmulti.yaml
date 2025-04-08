@@ -1,12 +1,12 @@
 version: v1.1.0
 steps:
 # Build target image
-- build: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}} ./demo
+- build: -t {{.Run.Registry}}/spring-app-jp:latest ./demo
 # Run image 
-- cmd: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}}
+- cmd: -t {{.Run.Registry}}/spring-app-jp:latest
   name: test
   detach: true
   ports: ["8080:80"]
 # Push image
 - push:
-  - {{.Run.Registry}}/spring-app-jp:{{.Run.ID}}
+  - {{.Run.Registry}}/spring-app-jp:latest
