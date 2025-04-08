@@ -1,0 +1,13 @@
+version: v1.1.0
+steps:
+# Build target image
+- build: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}} -f demo/Dockerfile .
+# Run image 
+- cmd: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}}
+  id: test
+  detach: true
+  ports: ["8080:8080"]
+- cmd: docker stop test
+# Push image
+- push:
+  - {{.Run.Registry}}/spring-app-jp:{{.Run.ID}}
