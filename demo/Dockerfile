@@ -11,7 +11,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Agora, a imagem final
-FROM maven:3.8.7-openjdk-18-slim
+FROM alpine/java:22-jdk
 
 # Define o diretório de trabalho
 WORKDIR /app
