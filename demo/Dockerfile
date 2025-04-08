@@ -1,13 +1,28 @@
-FROM alpine/java:22-jdk
+# Use uma imagem base que já tenha o Maven instalado
+FROM maven:3.8.7-openjdk-18-slim AS build
 
-# Define um diretório de trabalho dentro do container
+# Define o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Copia o arquivo JAR da aplicação para o container
-COPY target/*.jar app.jar
-COPY data/*.* ./data/
+# Copia os arquivos do projeto para o container
+COPY . .
 
-# Expõe a porta padrão da aplicação Spring Boot
+# Executa o Maven para compilar e gerar o JAR
+RUN mvn clean package -DskipTests
+
+# Agora, a imagem final
+FROM maven:3.8.7-openjdk-18-slim
+
+# Define o diretório de trabalho
+WORKDIR /app
+
+# Copia o JAR gerado da imagem anterior
+COPY --from=build /app/target/*.jar app.jar
+
+# Copia a pasta de dados
+COPY data/. /app/data/
+
+# Expõe a porta da aplicação
 EXPOSE 8080
 
 # Comando para rodar a aplicação
