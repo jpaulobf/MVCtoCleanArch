@@ -6,7 +6,7 @@ steps:
 - cmd: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}}
   id: test
   detach: true
-  ports: ["8080:8080"]
+  ports: ["8080:80"]
 - cmd: docker stop test
 # Push image
 - push:
