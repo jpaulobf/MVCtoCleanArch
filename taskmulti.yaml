@@ -3,10 +3,9 @@ steps:
 # Build target image
 - build: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}} ./demo
 # Run image 
-- cmd: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}}
-  id: test
-  detach: true
-  ports: ["8080:80"]
+- cmd: 
+  - docker run -d --name test -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}} 
+  - ports: ["8080:80"]
 - cmd: docker stop test
   id: stop-test
 # Push image
