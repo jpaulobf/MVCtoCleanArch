@@ -1,7 +1,7 @@
 version: v1.1.0
 steps:
 # Build target image
-- build: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}} -f ./demo
+- build: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}} ./demo
 # Run image 
 - cmd: -t {{.Run.Registry}}/spring-app-jp:{{.Run.ID}}
   id: test
