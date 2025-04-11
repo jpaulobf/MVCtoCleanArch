@@ -1,17 +1,18 @@
 spring:
 
-  application:
-    name: demo
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
 
   jpa:
-    database: h2
-    generate-ddl: true
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
-  datasource:
-    url: jdbc:h2:file:./data/demo
-    username: sa
-    password: pass1
-
+server:
+  port: 8080
