@@ -11,10 +11,10 @@ phases:
   pre_build:
     commands:
       - echo "Logando no ECR..."
+      - aws --version
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/my-spring-app
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-
   build:
     commands:
       - echo "Construindo a imagem Docker..."
