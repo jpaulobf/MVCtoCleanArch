@@ -7,7 +7,7 @@ env:
     IMAGE_REPO_NAME: my-spring-app
     IMAGE_TAG: latest
     DOCKERHUB_PASSWORD: D.....12
-    DOCKERHUB_USERNAME: jpaulobf
+    DOCKERHUB_USERNAME: j.....f
 
 phases:
   pre_build:
