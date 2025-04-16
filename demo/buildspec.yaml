@@ -1,5 +1,12 @@
 version: 0.2
 
+env:
+  variables:
+    AWS_REGION: us-east-1
+    AWS_ACCOUNT_ID: 432600844323
+    IMAGE_REPO_NAME: my-spring-app
+    IMAGE_TAG: latest
+
 phases:
   pre_build:
     commands:
