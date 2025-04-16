@@ -1,0 +1,36 @@
+version: 0.2
+
+env:
+  variables:
+    AWS_REGION: us-east-1
+    AWS_ACCOUNT_ID: 432600844323
+    IMAGE_REPO_NAME: my-spring-app
+    IMAGE_TAG: latest
+    DOCKERHUB_PASSWORD: D.....12
+    DOCKERHUB_USERNAME: j.....f
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Docker Hub...
+      - echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+      - echo "Logando no ECR..."
+      - aws --version
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/my-spring-app
+      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+  build:
+    commands:
+      - echo "Construindo a imagem Docker..."
+      - docker build -t $REPOSITORY_URI:$IMAGE_TAG demo/.
+
+  post_build:
+    commands:
+      - echo "Empurrando a imagem para o ECR..."
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+      - echo "Criando imagemDefinitions.json..."
+      - printf '[{"name":"my-spring-app","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+
+artifacts:
+  files:
+    - imagedefinitions.json
