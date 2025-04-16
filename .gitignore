@@ -1,4 +1,6 @@
 demo/target/classes/*
+demo/target/maven-archiver/*
+demo/target/test-classes/*
 data/demo.mv.db
 .vscode/*
 .idea/*
