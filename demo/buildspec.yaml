@@ -6,7 +6,7 @@ env:
     AWS_ACCOUNT_ID: 432600844323
     IMAGE_REPO_NAME: my-spring-app
     IMAGE_TAG: latest
-    DOCKERHUB_PASSWORD: D.ssfxii12
+    DOCKERHUB_PASSWORD: D.....12
     DOCKERHUB_USERNAME: jpaulobf
 
 phases:
