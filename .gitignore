@@ -7,3 +7,6 @@ data/demo.mv.db
 *.class
 *.jar
 *.lst
+demo/target/surefire-reports/TEST-com.example.demo.DemoApplicationTests.xml
+demo/target/surefire-reports/com.example.demo.DemoApplicationTests.txt
+demo/target/maven-archiver/pom.properties
